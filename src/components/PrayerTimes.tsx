@@ -61,7 +61,7 @@ const PrayerTimes: React.FC<PrayerTimesProps> = ({ onLocationError }) => {
     };
 
     loadPrayerTimes();
-  }, []);
+  }, [onLocationError]); // добавлено onLocationError
 
   useEffect(() => {
     if (!nextEvent) return;
@@ -120,7 +120,6 @@ const PrayerTimes: React.FC<PrayerTimesProps> = ({ onLocationError }) => {
     );
   }
 
-  const eventTypeText = nextEvent.type === 'suhoor' ? '🕒 Сухур (до)' : '🍽️ Ифтар (до)';
   const eventName = nextEvent.type === 'suhoor' ? t('suhoor') : t('iftar');
   const eventTime = nextEvent.time.toLocaleTimeString(i18n.language === 'ru' ? 'ru-RU' : i18n.language === 'tr' ? 'tr-TR' : 'en-US', {
     hour: '2-digit',
