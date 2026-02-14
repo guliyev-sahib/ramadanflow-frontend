@@ -13,6 +13,7 @@ interface PrayerTimesProps {
 }
 
 const PrayerTimes: React.FC<PrayerTimesProps> = ({ onLocationError }) => {
+  // @ts-ignore – временно игнорируем ошибку TS2589
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -139,13 +140,11 @@ const PrayerTimes: React.FC<PrayerTimesProps> = ({ onLocationError }) => {
         ⏰ {t('prayerTimes')}
       </h3>
       
-      {/* Дата и метод расчёта */}
       <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', fontSize: '0.9rem', color: '#f5f0e7', marginBottom: '1rem', opacity: 0.8 }}>
         <span>🗓 {currentDate}</span>
         {methodName && <span>⚙️ {methodName}</span>}
       </div>
       
-      {/* Времена Фаджр и Магриб с правильными подписями через переводы */}
       <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '1.5rem' }}>
         <div>
           <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>{t('fajr')} ({t('suhoor')})</div>
@@ -161,7 +160,6 @@ const PrayerTimes: React.FC<PrayerTimesProps> = ({ onLocationError }) => {
         </div>
       </div>
 
-      {/* Блок следующего события */}
       <div style={{
         background: 'rgba(201, 162, 39, 0.1)',
         borderRadius: '12px',
@@ -185,7 +183,6 @@ const PrayerTimes: React.FC<PrayerTimesProps> = ({ onLocationError }) => {
         </div>
       </div>
 
-      {/* Запрос разрешения на уведомления */}
       {permission !== 'granted' && typeof window !== 'undefined' && 'Notification' in window && (
         <div style={{ fontSize: '0.8rem', opacity: 0.6, marginTop: '0.5rem' }}>
           🔔 {t('notificationPermissionRequest')}
