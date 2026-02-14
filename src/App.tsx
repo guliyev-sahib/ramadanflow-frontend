@@ -30,7 +30,7 @@ function App() {
         });
         localStorage.setItem('token', res.data.access_token);
         setToken(res.data.access_token);
-        setMessage(t('loginSuccess'));
+        setMessage(String(t('loginSuccess'))); // Приведение к строке
       } else {
         const res = await axios.post(`${API_URL}/register`, {
           username,
@@ -46,9 +46,9 @@ function App() {
     } catch (err: any) {
       const errorMsg = err.response?.data?.detail || err.message;
       if (Array.isArray(errorMsg)) {
-        setMessage(t('error', { message: errorMsg.map(e => e.msg).join(', ') }));
+        setMessage(String(t('error', { message: errorMsg.map(e => e.msg).join(', ') })));
       } else {
-        setMessage(t('error', { message: errorMsg }));
+        setMessage(String(t('error', { message: errorMsg })));
       }
     }
   };
@@ -56,7 +56,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setToken(null);
-    setMessage(t('logoutMessage'));
+    setMessage(String(t('logoutMessage'))); // Приведение к строке
   };
 
   const changeLanguage = (lng: string) => {
