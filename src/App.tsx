@@ -6,7 +6,7 @@ import DayFeed from './DayFeed';
 import RecipeDetail from './components/RecipeDetail';
 import styles from './styles/App.module.css';
 
-const API_URL = 'http://192.168.235.128:8000'; // замените при необходимости
+const API_URL = 'https://delila-pupilless-unearthly.ngrok-free.dev'; // замените при необходимости
 
 function App() {
   const { t, i18n } = useTranslation();

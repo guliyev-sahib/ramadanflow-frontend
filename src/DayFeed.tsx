@@ -12,7 +12,7 @@ interface DayData {
   image_url?: string;
 }
 
-const API_URL = 'http://192.168.235.128:8000'; // при необходимости замените IP
+const API_URL = 'https://delila-pupilless-unearthly.ngrok-free.dev'; // при необходимости замените IP
 
 interface DayFeedProps {
   token: string;

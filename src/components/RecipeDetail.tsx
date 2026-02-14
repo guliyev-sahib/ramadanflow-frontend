@@ -25,7 +25,7 @@ interface Recipe {
   image_url: string | null;
 }
 
-const API_URL = 'http://192.168.235.128:8000';
+const API_URL = 'https://delila-pupilless-unearthly.ngrok-free.dev';
 
 const RecipeDetail: React.FC = () => {
   const { t, i18n } = useTranslation();
