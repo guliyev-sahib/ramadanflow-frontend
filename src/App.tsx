@@ -30,7 +30,7 @@ function App() {
         });
         localStorage.setItem('token', res.data.access_token);
         setToken(res.data.access_token);
-        setMessage(String(t('loginSuccess'))); // Приведение к строке
+        setMessage(String(t('loginSuccess')));
       } else {
         const res = await axios.post(`${API_URL}/register`, {
           username,
@@ -56,7 +56,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setToken(null);
-    setMessage(String(t('logoutMessage'))); // Приведение к строке
+    setMessage(String(t('logoutMessage')));
   };
 
   const changeLanguage = (lng: string) => {
@@ -67,7 +67,7 @@ function App() {
   if (!token) {
     return (
       <div className={styles.container}>
-        <h1 className={styles.title}>{t('appName')}</h1>
+        <h1 className={styles.title}>{String(t('appName'))}</h1>
 
         <div className={styles.langSwitch}>
           <button onClick={() => changeLanguage('ru')}>Русский</button>
@@ -76,11 +76,11 @@ function App() {
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
-          <h2>{isLogin ? t('login') : t('register')}</h2>
+          <h2>{isLogin ? String(t('login')) : String(t('register'))}</h2>
 
           <input
             type="text"
-            placeholder={t('username')}
+            placeholder={String(t('username'))}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -90,7 +90,7 @@ function App() {
           {!isLogin && (
             <input
               type="email"
-              placeholder={t('email')}
+              placeholder={String(t('email'))}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -100,7 +100,7 @@ function App() {
 
           <input
             type="password"
-            placeholder={t('password')}
+            placeholder={String(t('password'))}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -108,17 +108,17 @@ function App() {
           />
 
           <button type="submit" className={styles.primaryButton}>
-            {isLogin ? '🔑' : '👤'} {isLogin ? t('login') : t('register')}
+            {isLogin ? '🔑' : '👤'} {isLogin ? String(t('login')) : String(t('register'))}
           </button>
 
           <p className={styles.switchText}>
-            {isLogin ? t('noAccount') : t('hasAccount')}
+            {isLogin ? String(t('noAccount')) : String(t('hasAccount'))}
             <button
               type="button"
               onClick={() => setIsLogin(!isLogin)}
               className={styles.linkButton}
             >
-              {isLogin ? t('register') : t('login')}
+              {isLogin ? String(t('register')) : String(t('login'))}
             </button>
           </p>
         </form>
