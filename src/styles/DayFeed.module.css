@@ -1,0 +1,119 @@
+:root {
+  --primary-color: #c9a227;
+  --secondary-color: #1b4d3e;
+  --bg-color: #0a1929;
+  --text-light: #f5f0e7;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(201, 162, 39, 0.3);
+  --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --font-main: 'Cairo', 'Amiri', sans-serif;
+  --border-radius: 16px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  font-family: var(--font-main);
+  color: var(--text-light);
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header h2 {
+  color: var(--primary-color);
+  font-size: clamp(1.5rem, 5vw, 1.8rem);
+  font-weight: 600;
+}
+
+.logoutButton {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--text-light);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.navButton {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--primary-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.navButton:hover {
+  background: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.dayNumber {
+  font-size: clamp(1.2rem, 4vw, 1.4rem);
+  font-weight: 600;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.2);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem;
+  }
+  .nav {
+    gap: 0.5rem;
+  }
+  .navButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .dayNumber {
+    font-size: 1.2rem;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+}
